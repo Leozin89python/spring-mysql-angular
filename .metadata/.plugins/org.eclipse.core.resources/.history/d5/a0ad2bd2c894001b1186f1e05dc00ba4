@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.employee.employee.entities.Employee;
-import com.employee.employee.exception.UserNotFoundException;
 import com.employee.employee.repository.EmployeeRepository;
 
 @Service
@@ -33,7 +32,7 @@ public class EmployeeService {
 	}
 	
 	public Employee findEmployeeById(Long id) {
-		return repository.findEmployeeById(id).orElseThrow(() -> new  UserNotFoundException("user by id was not found"));
+		return repository.findEmployeeById(id);
 	}
 	
 	public void deleteEmployee(Long id) {
